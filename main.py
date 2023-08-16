@@ -9,7 +9,8 @@ from utils import *
 dataset_path = 'images'
 BATCH_SIZE = 64
 NUM_EPOCHS = 10
-LEARNING_RATE = 0.001
+LEARNING_RATE1 = 0.0001
+LEARNING_RATE2 = 0.002
 HIDDEN_SIZE = 64
 LATENT_DIM = 100 # How complex the generated Image is
 
@@ -28,8 +29,8 @@ generator = Generator(LATENT_DIM, 3, HIDDEN_SIZE)
 # discriminator.load_state_dict(torch.load('discriminator.pth'))
 
 # Initialize optimizers
-optimizer_discriminator = torch.optim.Adam(discriminator.parameters(), lr=LEARNING_RATE)
-optimizer_generator = torch.optim.Adam(generator.parameters(), lr=LEARNING_RATE)
+optimizer_discriminator = torch.optim.Adam(discriminator.parameters(), lr=LEARNING_RATE1)
+optimizer_generator = torch.optim.Adam(generator.parameters(), lr=LEARNING_RATE2)
 
 # Binary cross-entropy loss
 criterion = nn.BCELoss()
